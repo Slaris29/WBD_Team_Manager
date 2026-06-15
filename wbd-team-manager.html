@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WBD 팀 운영 센터</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  body { background:#0c1018; color:#e7ecf3; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; }
+  .glass { background:rgba(22,28,40,.72); backdrop-filter:blur(8px); }
+  .input { background:#0f141e; border:1px solid #28303f; border-radius:8px; padding:6px 10px; color:#e7ecf3; font-size:13px; outline:none; }
+  .input:focus { border-color:#3b82f6; }
+  ::-webkit-scrollbar{width:9px;height:9px} ::-webkit-scrollbar-thumb{background:#2a3344;border-radius:6px}
+  .chip { font-size:10px; padding:1px 6px; border-radius:5px; font-weight:600; display:inline-block; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>window.__TEAMS__ = [{"manager": "HANA_ARASHI", "name": "MoonShotSprits", "players": [{"name": "Yaksok~", "index": "134", "region": "KR", "mainPos": "SS", "subPos": "2B", "allPos": ["SS", "2B"], "throwBat": "", "isManager": false}, {"name": "Kr_Luna", "index": "106", "region": "KR", "mainPos": "P", "subPos": "C", "allPos": ["P", "C", "3B", "1B", "DH"], "throwBat": "", "isManager": false}, {"name": "Penguin_IDOL", "index": "169", "region": "KR", "mainPos": "1B", "subPos": "3B", "allPos": ["1B", "3B", "P"], "throwBat": "", "isManager": false}, {"name": "CVPileMaki", "index": "218", "region": "KR", "mainPos": "1B", "subPos": "SS", "allPos": ["1B", "SS", "OF", "P", "C"], "throwBat": "", "isManager": false}, {"name": "crani", "index": "371", "region": "KR", "mainPos": "SS", "subPos": "2B", "allPos": ["SS", "2B"], "throwBat": "", "isManager": false}, {"name": "si_ho", "index": "378", "region": "KR", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "SUGUN", "index": "360", "region": "KR", "mainPos": "1B", "subPos": "3B", "allPos": ["1B", "3B"], "throwBat": "", "isManager": false}, {"name": "\uac00\uc564\uc2ac_", "index": "373", "region": "KR", "mainPos": "1B", "subPos": "LF", "allPos": ["1B", "LF", "RF"], "throwBat": "", "isManager": false}, {"name": "-KYU-", "index": "", "region": "KR", "mainPos": "LF", "subPos": "RF", "allPos": ["LF", "RF"], "throwBat": "", "isManager": false}, {"name": "mungjungh", "index": "140", "region": "KR", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "k@ster", "index": "369", "region": "KR", "mainPos": "LF", "subPos": "SS", "allPos": ["LF", "SS", "3B"], "throwBat": "", "isManager": false}, {"name": "CAT tourniquet", "index": "172", "region": "KR", "mainPos": "1B", "subPos": "RF", "allPos": ["1B", "RF"], "throwBat": "", "isManager": false}, {"name": "HANA_ARASHI", "index": "101", "region": "", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": true}]}, {"manager": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "name": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "players": [{"name": "Sabo_10", "index": "123", "region": "KR", "mainPos": "LF", "subPos": "CF", "allPos": ["LF", "CF", "RF", "P", "3B", "1B"], "throwBat": "", "isManager": false}, {"name": "Megu3568", "index": "199", "region": "JP", "mainPos": "C", "subPos": "P", "allPos": ["C", "P", "1B"], "throwBat": "", "isManager": false}, {"name": "Dopi", "index": "117", "region": "KR", "mainPos": "RF", "subPos": "", "allPos": ["RF"], "throwBat": "", "isManager": false}, {"name": "Haru( \ud558\ub8e8 )", "index": "159", "region": "KR", "mainPos": "1B", "subPos": "P", "allPos": ["1B", "P"], "throwBat": "", "isManager": false}, {"name": "Muna_328", "index": "374", "region": "KR", "mainPos": "ALL", "subPos": "P", "allPos": ["ALL", "P"], "throwBat": "", "isManager": false}, {"name": "\u3046\u3088\u3059\u307e", "index": "368", "region": "JP", "mainPos": "OF", "subPos": "", "allPos": ["OF"], "throwBat": "", "isManager": false}, {"name": "Fresh825", "index": "125", "region": "JP", "mainPos": "2B", "subPos": "1B", "allPos": ["2B", "1B"], "throwBat": "", "isManager": false}, {"name": "_\uc570\ud504_", "index": "165", "region": "KR", "mainPos": "2B", "subPos": "", "allPos": ["2B"], "throwBat": "", "isManager": false}, {"name": "AKASATA", "index": "146", "region": "KR", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "schmoneymikey", "index": "327", "region": "EN", "mainPos": "3B", "subPos": "", "allPos": ["3B"], "throwBat": "", "isManager": false}, {"name": "tedonsama", "index": "", "region": "JP", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "index": "380", "region": "", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": true}]}, {"manager": "\u3042\u304a\u3044\u306c", "name": "\u3042\u304a\u3044\u306c", "players": [{"name": "\u029aEve\u025e", "index": "206", "region": "KR", "mainPos": "ALL", "subPos": "P", "allPos": ["ALL", "P"], "throwBat": "", "isManager": false}, {"name": "\uc778\uc0dd\ucd5c\ud328\ub9dd\uc790", "index": "120", "region": "KR", "mainPos": "1B", "subPos": "3B", "allPos": ["1B", "3B"], "throwBat": "", "isManager": false}, {"name": "sano jpn", "index": "210", "region": "JP", "mainPos": "ALL", "subPos": "P", "allPos": ["ALL", "P"], "throwBat": "", "isManager": false}, {"name": "NABIMan", "index": "339", "region": "KR", "mainPos": "OF", "subPos": "3B", "allPos": ["OF", "3B", "1B", "DH"], "throwBat": "", "isManager": false}, {"name": "\u767d\u971c\u3089\u3044\u3075", "index": "167", "region": "JP", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "\u30ab\u30ba\u30c6\u30a3\u30fc", "index": "188", "region": "JP", "mainPos": "2B", "subPos": "3B", "allPos": ["2B", "3B"], "throwBat": "", "isManager": false}, {"name": "Seyeon", "index": "377", "region": "KR", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "ibqrqki", "index": "291", "region": "JP", "mainPos": "2B", "subPos": "", "allPos": ["2B"], "throwBat": "", "isManager": false}, {"name": "P0TA0", "index": "309", "region": "JP", "mainPos": "P", "subPos": "1B", "allPos": ["P", "1B", "3B", "C"], "throwBat": "", "isManager": false}, {"name": "siesta_aves", "index": "170", "region": "JP", "mainPos": "P", "subPos": "C", "allPos": ["P", "C", "1B", "3B", "RF", "LF"], "throwBat": "", "isManager": false}, {"name": "IbikiKai_JP", "index": "151", "region": "JP", "mainPos": "C", "subPos": "", "allPos": ["C"], "throwBat": "", "isManager": false}, {"name": "\u3042\u304a\u3044\u306c", "index": "149", "region": "", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": true}]}, {"manager": "\ub208\uaf43", "name": "\ub208\uaf43", "players": [{"name": "\u7532\u6590\u91ce\u67ca\u592a", "index": "137", "region": "JP", "mainPos": "P", "subPos": "C", "allPos": ["P", "C", "IF"], "throwBat": "", "isManager": false}, {"name": "coder_", "index": "217", "region": "KR", "mainPos": "SS", "subPos": "", "allPos": ["SS"], "throwBat": "", "isManager": false}, {"name": "559\uff1a\u5e83\u544a", "index": "161", "region": "JP", "mainPos": "P", "subPos": "3B", "allPos": ["P", "3B"], "throwBat": "", "isManager": false}, {"name": "SFIDA", "index": "157", "region": "JP", "mainPos": "1B", "subPos": "P", "allPos": ["1B", "P", "LF", "RF", "C"], "throwBat": "", "isManager": false}, {"name": "\ub808\uc774\ub0982", "index": "384", "region": "KR", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "Amellaid", "index": "", "region": "KR", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "\u67f4\u5c71\u72ac\u5409", "index": "284", "region": "JP", "mainPos": "2B", "subPos": "", "allPos": ["2B"], "throwBat": "", "isManager": false}, {"name": "YukihiroD", "index": "332", "region": "EN", "mainPos": "SS", "subPos": "2B", "allPos": ["SS", "2B", "OF"], "throwBat": "", "isManager": false}, {"name": "\uc18c\uc1a8\uc18c\uc1a8", "index": "143", "region": "KR", "mainPos": "ALL", "subPos": "", "allPos": ["ALL"], "throwBat": "", "isManager": false}, {"name": "Azuner", "index": "168", "region": "JP", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "\u304f\u3093\u3060\u3088\u30fc\u300e\uc544\uc774 \uad70\u300f", "index": "164", "region": "JP", "mainPos": "3B", "subPos": "", "allPos": ["3B"], "throwBat": "", "isManager": false}, {"name": "\ub208\uaf43", "index": "108", "region": "", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": true}]}, {"manager": "encounter v", "name": "encounter v", "players": [{"name": "ByeolBam", "index": "105", "region": "KR", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "shimenawa", "index": "205", "region": "JP", "mainPos": "SS", "subPos": "", "allPos": ["SS"], "throwBat": "", "isManager": false}, {"name": "DoYaGee", "index": "113", "region": "KR", "mainPos": "1B", "subPos": "2B", "allPos": ["1B", "2B", "3B", "C", "P"], "throwBat": "", "isManager": false}, {"name": "\u308f\u3060\u3001\u3001", "index": "278", "region": "JP", "mainPos": "SS", "subPos": "", "allPos": ["SS"], "throwBat": "", "isManager": false}, {"name": "Po_cari", "index": "", "region": "KR", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "Muyang_", "index": "116", "region": "KR", "mainPos": "SS", "subPos": "", "allPos": ["SS"], "throwBat": "", "isManager": false}, {"name": "ddil_ddil69", "index": "379", "region": "KR", "mainPos": "RF", "subPos": "2B", "allPos": ["RF", "2B"], "throwBat": "", "isManager": false}, {"name": "yumi2012", "index": "", "region": "KR", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "\uc7c8\uac00\ub9ac\ucf54", "index": "141", "region": "JP", "mainPos": "P", "subPos": "", "allPos": ["P"], "throwBat": "", "isManager": false}, {"name": "_\uc1a1\uae00_", "index": "318", "region": "KR", "mainPos": "3B", "subPos": "", "allPos": ["3B"], "throwBat": "", "isManager": false}, {"name": "RiyaJ", "index": "268", "region": "", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "encounter v", "index": "155", "region": "", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": true}]}, {"manager": "Gonyong", "name": "Gonyong", "players": [{"name": "Espresso", "index": "112", "region": "KR", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "\u30a2\u30ea\u30a2\u30eb", "index": "238", "region": "JP", "mainPos": "P", "subPos": "3B", "allPos": ["P", "3B", "1B"], "throwBat": "", "isManager": false}, {"name": "\u3042\u304f\u305b\u308b", "index": "139", "region": "JP", "mainPos": "OF", "subPos": "3B", "allPos": ["OF", "3B", "1B", "P"], "throwBat": "", "isManager": false}, {"name": "\u306b\u3083\u3093\u30533K", "index": "313", "region": "JP", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "?fredo?", "index": "329", "region": "EN", "mainPos": "P", "subPos": "1B", "allPos": ["P", "1B"], "throwBat": "", "isManager": false}, {"name": "CoalCat", "index": "", "region": "KR", "mainPos": "SS", "subPos": "", "allPos": ["SS"], "throwBat": "", "isManager": false}, {"name": "Roscosmos", "index": "131", "region": "KR", "mainPos": "P", "subPos": "OF", "allPos": ["P", "OF"], "throwBat": "", "isManager": false}, {"name": "Metalu", "index": "315", "region": "KR", "mainPos": "P", "subPos": "", "allPos": ["P"], "throwBat": "", "isManager": false}, {"name": "kneesohime", "index": "", "region": "JP", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "\u300cyune\u300d", "index": "145", "region": "JP", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "vovopo \ubcf4\ubcf4\ud3ec", "index": "173", "region": "KR", "mainPos": "2B", "subPos": "SS", "allPos": ["2B", "SS"], "throwBat": "", "isManager": false}, {"name": "Gonyong", "index": "104", "region": "", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": true}]}, {"manager": "-\ub77c\ud6c4\uc774-", "name": "-\ub77c\ud6c4\uc774-", "players": [{"name": "Slaris", "index": "103", "region": "KR", "mainPos": "3B", "subPos": "P", "allPos": ["3B", "P"], "throwBat": "", "isManager": false}, {"name": "Kenomo", "index": "160", "region": "JP", "mainPos": "ALL", "subPos": "P", "allPos": ["ALL", "P"], "throwBat": "", "isManager": false}, {"name": "\ub091\uae61__", "index": "326", "region": "KR", "mainPos": "2B", "subPos": "", "allPos": ["2B"], "throwBat": "", "isManager": false}, {"name": "Flor\u00e4", "index": "128", "region": "KR", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "\uc989\uc11d\uce74\ub808", "index": "244", "region": "KR", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "~kawasaaaki~", "index": "355", "region": "JP", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "\u30c7\u30a3\u30b7\u30b8\u30e7\u30f3", "index": "274", "region": "JP", "mainPos": "OF", "subPos": "1B", "allPos": ["OF", "1B", "3B", "DH"], "throwBat": "", "isManager": false}, {"name": "\u3050\u3060\u3082\u3093", "index": "166", "region": "JP", "mainPos": "OF", "subPos": "P", "allPos": ["OF", "P", "2B", "3B", "SS"], "throwBat": "", "isManager": false}, {"name": "Ainy4\uff0f\u3042\u3044\u306b\u3083", "index": "277", "region": "JP", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "\uc544\uce68\ub545_", "index": "233", "region": "KR", "mainPos": "OF", "subPos": "2B", "allPos": ["OF", "2B"], "throwBat": "", "isManager": false}, {"name": "\u30e1\u30ea\u30cb\u30c3\u30c8", "index": "253", "region": "JP", "mainPos": "OF", "subPos": "", "allPos": ["OF"], "throwBat": "", "isManager": false}, {"name": "-\ub77c\ud6c4\uc774-", "index": "109", "region": "", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": true}]}, {"manager": "ke ro", "name": "ke ro", "players": [{"name": "_Chun", "index": "144", "region": "KR", "mainPos": "P", "subPos": "1B", "allPos": ["P", "1B", "SS", "C"], "throwBat": "", "isManager": false}, {"name": "\u3086\u3063\u3061\u30fc", "index": "119", "region": "JP", "mainPos": "OF", "subPos": "2B", "allPos": ["OF", "2B", "SS"], "throwBat": "", "isManager": false}, {"name": "\u308f\u304b\u306a\u3067", "index": "135", "region": "JP", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "TaeGeuk_", "index": "153", "region": "KR", "mainPos": "P", "subPos": "C", "allPos": ["P", "C", "SS", "2B", "3B"], "throwBat": "", "isManager": false}, {"name": "shuwaYNZ", "index": "179", "region": "JP", "mainPos": "1B", "subPos": "3B", "allPos": ["1B", "3B", "LF", "CF", "RF", "P", "C"], "throwBat": "", "isManager": false}, {"name": "\u300c\ub860\uad6c\u300d", "index": "381", "region": "KR", "mainPos": "OF", "subPos": "", "allPos": ["OF"], "throwBat": "", "isManager": false}, {"name": "3Ducks", "index": "267", "region": "EN", "mainPos": "P", "subPos": "", "allPos": ["P"], "throwBat": "", "isManager": false}, {"name": "\u307e\u3068\u3068\u307e\u3068", "index": "292", "region": "JP", "mainPos": "P", "subPos": "1B", "allPos": ["P", "1B", "2B", "SS"], "throwBat": "", "isManager": false}, {"name": "MuRaZaGi", "index": "392", "region": "JP", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "Mr.D VRC", "index": "279", "region": "JP", "mainPos": "SS", "subPos": "2B", "allPos": ["SS", "2B", "1B"], "throwBat": "", "isManager": false}, {"name": "\ubcc4\uc774_", "index": "316", "region": "KR", "mainPos": "OF", "subPos": "1B", "allPos": ["OF", "1B"], "throwBat": "", "isManager": false}, {"name": "ke ro", "index": "107", "region": "", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": true}]}, {"manager": "-Alta-", "name": "Altair Titans", "players": [{"name": "Pugeuk", "index": "222", "region": "KR", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "Pring__", "index": "102", "region": "KR", "mainPos": "3B", "subPos": "1B", "allPos": ["3B", "1B", "DH"], "throwBat": "", "isManager": false}, {"name": "mochi_2929", "index": "136", "region": "JP", "mainPos": "ALL", "subPos": "", "allPos": ["ALL"], "throwBat": "", "isManager": false}, {"name": "\u7d05\u3055\u304b\u306a", "index": "171", "region": "JP", "mainPos": "OF", "subPos": "", "allPos": ["OF"], "throwBat": "", "isManager": false}, {"name": "alcohol500", "index": "176", "region": "JP", "mainPos": "OF", "subPos": "", "allPos": ["OF"], "throwBat": "", "isManager": false}, {"name": "HalF_HearteD", "index": "133", "region": "KR", "mainPos": "C", "subPos": "", "allPos": ["C"], "throwBat": "", "isManager": false}, {"name": "Rite_", "index": "319", "region": "KR", "mainPos": "2B", "subPos": "SS", "allPos": ["2B", "SS"], "throwBat": "", "isManager": false}, {"name": "ame_3", "index": "328", "region": "JP", "mainPos": "P", "subPos": "1B", "allPos": ["P", "1B", "RF"], "throwBat": "", "isManager": false}, {"name": "magimari", "index": "320", "region": "KR", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": false}, {"name": "bdg06213", "index": "122", "region": "KR", "mainPos": "3B", "subPos": "1B", "allPos": ["3B", "1B"], "throwBat": "", "isManager": false}, {"name": "Pizzallaris", "index": "212", "region": "JP", "mainPos": "OF", "subPos": "", "allPos": ["OF"], "throwBat": "", "isManager": false}, {"name": "-Alta-", "index": "121", "region": "", "mainPos": "", "subPos": "", "allPos": [], "throwBat": "", "isManager": true}]}];</script>
+<script type="text/babel">
+const {useState,useEffect,useMemo,useRef} = React;
+
+const STORAGE_KEY = 'wbd-team-mgr-v3';
+const PHOTO_TPL = 'https://images.vrcbaseball.com/pfp/{index}.png';
+const POS_LIST = ['P','C','1B','2B','3B','SS','LF','CF','RF','DH'];
+const POS_COLOR = {
+  P:'#f97316', C:'#a855f7', '1B':'#3b82f6', '2B':'#06b6d4', '3B':'#ec4899',
+  SS:'#22c55e', LF:'#eab308', CF:'#14b8a6', RF:'#f43f5e', DH:'#94a3b8',
+  OF:'#eab308', IF:'#3b82f6', ALL:'#d946ef'
+};
+const expandPos = (arr) => {
+  const out=[]; (arr||[]).forEach(p=>{
+    if(p==='OF') out.push('LF','CF','RF');
+    else if(p==='IF') out.push('1B','2B','3B','SS');
+    else if(p==='ALL') out.push('C','1B','2B','3B','SS','LF','CF','RF');
+    else out.push(p);
+  }); return [...new Set(out)];
+};
+
+function PlayerPhoto({index,name,size=44}){
+  const [err,setErr]=useState(false);
+  useEffect(()=>{setErr(false);},[index]);
+  const s={width:size,height:size};
+  if(!index||err) return <div style={s} className="rounded-lg bg-slate-700/60 flex items-center justify-center text-[10px] text-slate-400 font-bold shrink-0">{index||'—'}</div>;
+  return <img src={PHOTO_TPL.replace('{index}',index)} alt={name} loading="lazy" style={s} onError={()=>setErr(true)} className="rounded-lg object-cover shrink-0 bg-slate-800"/>;
+}
+function PosChip({p}){ const c=POS_COLOR[p]||'#64748b'; return <span className="chip" style={{background:c+'22',color:c,border:'1px solid '+c+'55'}}>{p}</span>; }
+
+function buildInitial(){
+  const seed=window.__TEAMS__;
+  const teams=seed.map((t,ti)=>({
+    id:'t'+ti, manager:t.manager, name:t.name||t.manager,
+    players:t.players.map((p,pi)=>({
+      id:'t'+ti+'p'+pi, name:p.name, index:p.index||'', region:p.region||'',
+      mainPos:p.mainPos||'', subPos:p.subPos||'', allPos:p.allPos||[],
+      throwBat:p.throwBat||'', isManager:!!p.isManager
+    }))
+  }));
+  return { teams, schedule:[{"id": "g0", "date": "2026-06-26", "home": "-\ub77c\ud6c4\uc774-", "away": "encounter v", "hs": "", "as": "", "note": ""}, {"id": "g1", "date": "2026-06-26", "home": "\ub208\uaf43", "away": "Altair Titans", "hs": "", "as": "", "note": ""}, {"id": "g2", "date": "2026-06-27", "home": "\u3042\u304a\u3044\u306c", "away": "-\ub77c\ud6c4\uc774-", "hs": "", "as": "", "note": ""}, {"id": "g3", "date": "2026-06-27", "home": "ke ro", "away": "encounter v", "hs": "", "as": "", "note": ""}, {"id": "g4", "date": "2026-06-28", "home": "Gonyong", "away": "Altair Titans", "hs": "", "as": "", "note": ""}, {"id": "g5", "date": "2026-06-28", "home": "\ub208\uaf43", "away": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "hs": "", "as": "", "note": ""}, {"id": "g6", "date": "2026-07-03", "home": "encounter v", "away": "\u3042\u304a\u3044\u306c", "hs": "", "as": "", "note": ""}, {"id": "g7", "date": "2026-07-03", "home": "ke ro", "away": "MoonShotSprits", "hs": "", "as": "", "note": ""}, {"id": "g8", "date": "2026-07-04", "home": "Altair Titans", "away": "MoonShotSprits", "hs": "", "as": "", "note": ""}, {"id": "g9", "date": "2026-07-04", "home": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "away": "-\ub77c\ud6c4\uc774-", "hs": "", "as": "", "note": ""}, {"id": "g10", "date": "2026-07-05", "home": "Altair Titans", "away": "ke ro", "hs": "", "as": "", "note": ""}, {"id": "g11", "date": "2026-07-05", "home": "-\ub77c\ud6c4\uc774-", "away": "\ub208\uaf43", "hs": "", "as": "", "note": ""}, {"id": "g12", "date": "2026-07-10", "home": "ke ro", "away": "Gonyong", "hs": "", "as": "", "note": ""}, {"id": "g13", "date": "2026-07-10", "home": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "away": "\u3042\u304a\u3044\u306c", "hs": "", "as": "", "note": ""}, {"id": "g14", "date": "2026-07-11", "home": "encounter v", "away": "Altair Titans", "hs": "", "as": "", "note": ""}, {"id": "g15", "date": "2026-07-11", "home": "MoonShotSprits", "away": "-\ub77c\ud6c4\uc774-", "hs": "", "as": "", "note": ""}, {"id": "g16", "date": "2026-07-12", "home": "Gonyong", "away": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "hs": "", "as": "", "note": ""}, {"id": "g17", "date": "2026-07-12", "home": "\u3042\u304a\u3044\u306c", "away": "ke ro", "hs": "", "as": "", "note": ""}, {"id": "g18", "date": "2026-07-17", "home": "Gonyong", "away": "MoonShotSprits", "hs": "", "as": "", "note": ""}, {"id": "g19", "date": "2026-07-17", "home": "\u3042\u304a\u3044\u306c", "away": "\ub208\uaf43", "hs": "", "as": "", "note": ""}, {"id": "g20", "date": "2026-07-18", "home": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "away": "Altair Titans", "hs": "", "as": "", "note": ""}, {"id": "g21", "date": "2026-07-18", "home": "\ub208\uaf43", "away": "Gonyong", "hs": "", "as": "", "note": ""}, {"id": "g22", "date": "2026-07-19", "home": "-\ub77c\ud6c4\uc774-", "away": "ke ro", "hs": "", "as": "", "note": ""}, {"id": "g23", "date": "2026-07-19", "home": "MoonShotSprits", "away": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "hs": "", "as": "", "note": ""}, {"id": "g24", "date": "2026-07-24", "home": "Altair Titans", "away": "-\ub77c\ud6c4\uc774-", "hs": "", "as": "", "note": ""}, {"id": "g25", "date": "2026-07-24", "home": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "away": "encounter v", "hs": "", "as": "", "note": ""}, {"id": "g26", "date": "2026-07-25", "home": "Gonyong", "away": "\u3042\u304a\u3044\u306c", "hs": "", "as": "", "note": ""}, {"id": "g27", "date": "2026-07-25", "home": "ke ro", "away": "\ub208\uaf43", "hs": "", "as": "", "note": ""}, {"id": "g28", "date": "2026-07-26", "home": "\u3042\u304a\u3044\u306c", "away": "MoonShotSprits", "hs": "", "as": "", "note": ""}, {"id": "g29", "date": "2026-07-26", "home": "encounter v", "away": "Gonyong", "hs": "", "as": "", "note": ""}, {"id": "g30", "date": "2026-07-31", "home": "-\ub77c\ud6c4\uc774-", "away": "Gonyong", "hs": "", "as": "", "note": ""}, {"id": "g31", "date": "2026-07-31", "home": "MoonShotSprits", "away": "\ub208\uaf43", "hs": "", "as": "", "note": ""}, {"id": "g32", "date": "2026-08-01", "home": "ke ro", "away": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "hs": "", "as": "", "note": ""}, {"id": "g33", "date": "2026-08-01", "home": "\ub208\uaf43", "away": "encounter v", "hs": "", "as": "", "note": ""}, {"id": "g34", "date": "2026-08-02", "home": "Altair Titans", "away": "\u3042\u304a\u3044\u306c", "hs": "", "as": "", "note": ""}, {"id": "g35", "date": "2026-08-02", "home": "encounter v", "away": "MoonShotSprits", "hs": "", "as": "", "note": ""}, {"id": "g36", "date": "2026-08-14", "home": "\u3042\u304a\u3044\u306c", "away": "Altair Titans", "hs": "", "as": "", "note": ""}, {"id": "g37", "date": "2026-08-14", "home": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "away": "ke ro", "hs": "", "as": "", "note": ""}, {"id": "g38", "date": "2026-08-15", "home": "Gonyong", "away": "-\ub77c\ud6c4\uc774-", "hs": "", "as": "", "note": ""}, {"id": "g39", "date": "2026-08-15", "home": "MoonShotSprits", "away": "encounter v", "hs": "", "as": "", "note": ""}, {"id": "g40", "date": "2026-08-16", "home": "MoonShotSprits", "away": "\u3042\u304a\u3044\u306c", "hs": "", "as": "", "note": ""}, {"id": "g41", "date": "2026-08-16", "home": "\ub208\uaf43", "away": "ke ro", "hs": "", "as": "", "note": ""}, {"id": "g42", "date": "2026-08-21", "home": "encounter v", "away": "\ub208\uaf43", "hs": "", "as": "", "note": ""}, {"id": "g43", "date": "2026-08-21", "home": "MoonShotSprits", "away": "Gonyong", "hs": "", "as": "", "note": ""}, {"id": "g44", "date": "2026-08-22", "home": "\u3042\u304a\u3044\u306c", "away": "Gonyong", "hs": "", "as": "", "note": ""}, {"id": "g45", "date": "2026-08-22", "home": "\ub208\uaf43", "away": "MoonShotSprits", "hs": "", "as": "", "note": ""}, {"id": "g46", "date": "2026-08-23", "home": "encounter v", "away": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "hs": "", "as": "", "note": ""}, {"id": "g47", "date": "2026-08-23", "home": "ke ro", "away": "-\ub77c\ud6c4\uc774-", "hs": "", "as": "", "note": ""}, {"id": "g48", "date": "2026-08-28", "home": "Gonyong", "away": "encounter v", "hs": "", "as": "", "note": ""}, {"id": "g49", "date": "2026-08-28", "home": "ke ro", "away": "\u3042\u304a\u3044\u306c", "hs": "", "as": "", "note": ""}, {"id": "g50", "date": "2026-08-29", "home": "Gonyong", "away": "ke ro", "hs": "", "as": "", "note": ""}, {"id": "g51", "date": "2026-08-29", "home": "-\ub77c\ud6c4\uc774-", "away": "Altair Titans", "hs": "", "as": "", "note": ""}, {"id": "g52", "date": "2026-08-30", "home": "-\ub77c\ud6c4\uc774-", "away": "MoonShotSprits", "hs": "", "as": "", "note": ""}, {"id": "g53", "date": "2026-08-30", "home": "\ub208\uaf43", "away": "\u3042\u304a\u3044\u306c", "hs": "", "as": "", "note": ""}, {"id": "g54", "date": "2026-09-04", "home": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "away": "MoonShotSprits", "hs": "", "as": "", "note": ""}, {"id": "g55", "date": "2026-09-04", "home": "\ub208\uaf43", "away": "-\ub77c\ud6c4\uc774-", "hs": "", "as": "", "note": ""}, {"id": "g56", "date": "2026-09-05", "home": "Altair Titans", "away": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "hs": "", "as": "", "note": ""}, {"id": "g57", "date": "2026-09-05", "home": "-\ub77c\ud6c4\uc774-", "away": "\u3042\u304a\u3044\u306c", "hs": "", "as": "", "note": ""}, {"id": "g58", "date": "2026-09-06", "home": "Gonyong", "away": "\ub208\uaf43", "hs": "", "as": "", "note": ""}, {"id": "g59", "date": "2026-09-06", "home": "Altair Titans", "away": "encounter v", "hs": "", "as": "", "note": ""}, {"id": "g60", "date": "2026-09-11", "home": "ke ro", "away": "Altair Titans", "hs": "", "as": "", "note": ""}, {"id": "g61", "date": "2026-09-11", "home": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "away": "Gonyong", "hs": "", "as": "", "note": ""}, {"id": "g62", "date": "2026-09-12", "home": "Altair Titans", "away": "\ub208\uaf43", "hs": "", "as": "", "note": ""}, {"id": "g63", "date": "2026-09-12", "home": "\u3042\u304a\u3044\u306c", "away": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "hs": "", "as": "", "note": ""}, {"id": "g64", "date": "2026-09-13", "home": "\u3042\u304a\u3044\u306c", "away": "encounter v", "hs": "", "as": "", "note": ""}, {"id": "g65", "date": "2026-09-13", "home": "MoonShotSprits", "away": "ke ro", "hs": "", "as": "", "note": ""}, {"id": "g66", "date": "2026-09-18", "home": "encounter v", "away": "-\ub77c\ud6c4\uc774-", "hs": "", "as": "", "note": ""}, {"id": "g67", "date": "2026-09-18", "home": "MoonShotSprits", "away": "Altair Titans", "hs": "", "as": "", "note": ""}, {"id": "g68", "date": "2026-09-19", "home": "encounter v", "away": "ke ro", "hs": "", "as": "", "note": ""}, {"id": "g69", "date": "2026-09-19", "home": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "away": "\ub208\uaf43", "hs": "", "as": "", "note": ""}, {"id": "g70", "date": "2026-09-20", "home": "Altair Titans", "away": "Gonyong", "hs": "", "as": "", "note": ""}, {"id": "g71", "date": "2026-09-20", "home": "-\ub77c\ud6c4\uc774-", "away": "\u6fc3\u3044\u3081\u306e\u30e9\u30fc\u6cb9", "hs": "", "as": "", "note": ""}], lineups:{}, depth:{}, myTeam:(teams[0]?.id||null), _v:3 };
+}
+function loadState(){
+  try{ const raw=localStorage.getItem(STORAGE_KEY); if(raw){const s=JSON.parse(raw); if(s&&s.teams) return s;} }catch(e){}
+  return buildInitial();
+}
+
+function App(){
+  const [state,setState]=useState(loadState);
+  const [tab,setTab]=useState('teams');
+  const [selTeam,setSelTeam]=useState(state.myTeam||state.teams[0]?.id||null);
+  const saveTimer=useRef(null);
+  useEffect(()=>{ if(saveTimer.current)clearTimeout(saveTimer.current);
+    saveTimer.current=setTimeout(()=>{ try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch(e){} },400); },[state]);
+  const update=(fn)=>setState(s=>{const n=JSON.parse(JSON.stringify(s));fn(n);return n;});
+  const tabs=[['teams','팀 · 로스터'],['schedule','경기 일정'],['scout','상대 분석'],['lineup','라인업'],['depth','뎁스차트']];
+  return (
+    <div className="min-h-screen">
+      <header className="glass sticky top-0 z-30 border-b border-slate-800">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
+          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center font-black text-sm">⚾</div>
+          <div className="flex-1"><div className="font-bold text-[15px] leading-tight">WBD 팀 운영 센터</div><div className="text-[11px] text-slate-400">Season 4 · 감독 작전실</div></div>
+          <div className="flex items-center gap-1.5">
+            <span className="text-[11px] text-slate-400">⭐ 내 팀</span>
+            <select className="input text-[12px] py-1" value={state.myTeam||''} onChange={e=>update(s=>{s.myTeam=e.target.value;})}>
+              <option value="">— 미지정 —</option>
+              {state.teams.map(t=><option key={t.id} value={t.id}>{t.name}</option>)}
+            </select>
+          </div>
+          <button onClick={()=>{if(confirm('모든 데이터를 초기화하고 드래프트 결과로 되돌립니다. 계속할까요?')){localStorage.removeItem(STORAGE_KEY);setState(buildInitial());}}} className="text-[11px] text-slate-400 hover:text-red-400 border border-slate-700 rounded px-2 py-1">초기화</button>
+        </div>
+        <div className="max-w-6xl mx-auto px-2 flex gap-1 overflow-x-auto pb-1">
+          {tabs.map(([k,label])=>(<button key={k} onClick={()=>setTab(k)} className={"px-3 py-1.5 rounded-t-lg text-[13px] font-semibold whitespace-nowrap "+(tab===k?'bg-slate-800 text-white':'text-slate-400 hover:text-slate-200')}>{label}</button>))}
+        </div>
+      </header>
+      <main className="max-w-6xl mx-auto px-3 py-4">
+        {tab==='teams' && <TeamsView state={state} update={update} selTeam={selTeam} setSelTeam={setSelTeam}/>}
+        {tab==='schedule' && <ScheduleView state={state} update={update}/>}
+        {tab==='scout' && <ScoutView state={state}/>}
+        {tab==='lineup' && <LineupView state={state} update={update}/>}
+        {tab==='depth' && <DepthView state={state} update={update}/>}
+      </main>
+      <div className="h-10"/>
+    </div>
+  );
+}
+
+function TeamPicker({state,tid,setTid}){
+  return (<div className="flex gap-1.5 mb-4 flex-wrap">
+    {state.teams.map(t=>(<button key={t.id} onClick={()=>setTid(t.id)} className={"px-3 py-1.5 rounded-lg text-[13px] font-semibold "+(tid===t.id?'bg-blue-600 text-white':'bg-slate-800/50 text-slate-300 hover:bg-slate-800')+(state.myTeam===t.id?' ring-1 ring-amber-400/60':'')}>{state.myTeam===t.id&&'⭐ '}{t.name}</button>))}
+  </div>);
+}
+
+// ---------- TEAMS ----------
+function TeamsView({state,update,selTeam,setSelTeam}){
+  const team=state.teams.find(t=>t.id===selTeam)||state.teams[0];
+  const [editP,setEditP]=useState(null);
+  const addTeam=()=>update(s=>{const id='t'+Date.now();s.teams.push({id,manager:'새 감독',name:'새 팀',players:[]});});
+  const delTeam=(id)=>{if(confirm('이 팀을 삭제할까요?'))update(s=>{s.teams=s.teams.filter(t=>t.id!==id);});};
+  const addPlayer=()=>update(s=>{const t=s.teams.find(x=>x.id===team.id);t.players.push({id:'p'+Date.now(),name:'새 선수',index:'',region:'',mainPos:'',subPos:'',allPos:[],throwBat:'',isManager:false});});
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4">
+      <div className="space-y-1">
+        {state.teams.map(t=>(<button key={t.id} onClick={()=>setSelTeam(t.id)} className={"w-full text-left px-3 py-2 rounded-lg text-[13px] flex items-center justify-between "+(team.id===t.id?'bg-blue-600/20 border border-blue-500/40':'bg-slate-800/40 hover:bg-slate-800 border border-transparent')}>
+          <span className="truncate"><span className="font-semibold">{state.myTeam===t.id&&'⭐ '}{t.name}</span><span className="text-slate-500 text-[11px] ml-1">{t.players.length}명</span></span></button>))}
+        <button onClick={addTeam} className="w-full px-3 py-2 rounded-lg text-[13px] text-slate-400 border border-dashed border-slate-700 hover:border-slate-500 hover:text-slate-200">+ 팀 추가</button>
+      </div>
+      {team && (
+      <div className="glass rounded-xl border border-slate-800 p-4">
+        <div className="flex items-center gap-2 mb-3">
+          <input className="input text-[15px] font-bold flex-1" value={team.name} onChange={e=>update(s=>{s.teams.find(x=>x.id===team.id).name=e.target.value;})}/>
+          <input className="input text-[12px] w-32" value={team.manager} placeholder="감독명" onChange={e=>update(s=>{s.teams.find(x=>x.id===team.id).manager=e.target.value;})}/>
+          <button onClick={()=>delTeam(team.id)} className="text-[11px] text-slate-500 hover:text-red-400 px-2">팀 삭제</button>
+        </div>
+        <div className="space-y-1.5">
+          {team.players.map(p=>(
+            <div key={p.id} className={"flex items-center gap-3 rounded-lg p-2 "+(p.isManager?'bg-indigo-500/10 border border-indigo-500/30':'bg-slate-800/40 hover:bg-slate-800/70')}>
+              <PlayerPhoto index={p.index} name={p.name} size={42}/>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2">
+                  {p.isManager && <span className="chip bg-indigo-500/30 text-indigo-200">감독</span>}
+                  <span className="font-semibold text-[14px] truncate">{p.name}</span>
+                  {p.region && <span className="text-[10px] text-slate-500">{p.region}</span>}
+                  {p.throwBat && <span className="text-[10px] text-amber-400/80">{p.throwBat}</span>}
+                </div>
+                <div className="flex items-center gap-1 mt-0.5 flex-wrap">
+                  {p.mainPos && <PosChip p={p.mainPos}/>}
+                  {expandPos(p.allPos).filter(x=>x!==p.mainPos).slice(0,6).map(x=><span key={x} className="chip bg-slate-700/40 text-slate-400">{x}</span>)}
+                </div>
+              </div>
+              <button onClick={()=>setEditP(p)} className="text-[11px] text-slate-400 hover:text-blue-400 px-2">편집</button>
+            </div>
+          ))}
+          <button onClick={addPlayer} className="w-full py-2 rounded-lg text-[13px] text-slate-400 border border-dashed border-slate-700 hover:border-slate-500">+ 선수 추가</button>
+        </div>
+      </div>)}
+      {editP && <PlayerEdit player={editP} team={team} update={update} onClose={()=>setEditP(null)}/>}
+    </div>
+  );
+}
+
+function PlayerEdit({player,team,update,onClose}){
+  const [p,setP]=useState({...player,allPos:[...(player.allPos||[])]});
+  const save=()=>{update(s=>{const t=s.teams.find(x=>x.id===team.id);const i=t.players.findIndex(x=>x.id===player.id);t.players[i]={...p};});onClose();};
+  const del=()=>{if(confirm('이 선수를 로스터에서 제거할까요?')){update(s=>{const t=s.teams.find(x=>x.id===team.id);t.players=t.players.filter(x=>x.id!==player.id);});onClose();}};
+  const togglePos=(pos)=>setP(o=>({...o,allPos:o.allPos.includes(pos)?o.allPos.filter(x=>x!==pos):[...o.allPos,pos]}));
+  return (
+    <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="glass rounded-xl border border-slate-700 p-5 w-full max-w-md" onClick={e=>e.stopPropagation()}>
+        <div className="flex items-center gap-3 mb-4"><PlayerPhoto index={p.index} name={p.name} size={56}/><div className="text-[15px] font-bold flex-1">{p.name||'선수 편집'}</div>
+          <label className="flex items-center gap-1.5 text-[12px] text-slate-300"><input type="checkbox" checked={p.isManager} onChange={e=>setP({...p,isManager:e.target.checked})}/>감독</label></div>
+        <div className="space-y-3">
+          <Field label="이름"><input className="input w-full" value={p.name} onChange={e=>setP({...p,name:e.target.value})}/></Field>
+          <div className="grid grid-cols-2 gap-3">
+            <Field label="인덱스 (사진)"><input className="input w-full font-mono" value={p.index} placeholder="예: 134" onChange={e=>setP({...p,index:e.target.value})}/></Field>
+            <Field label="투타 (예: 우투좌타)"><input className="input w-full" value={p.throwBat} onChange={e=>setP({...p,throwBat:e.target.value})}/></Field>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <Field label="주 포지션"><select className="input w-full" value={p.mainPos} onChange={e=>setP({...p,mainPos:e.target.value})}><option value="">—</option>{POS_LIST.map(x=><option key={x} value={x}>{x}</option>)}</select></Field>
+            <Field label="부 포지션"><select className="input w-full" value={p.subPos} onChange={e=>setP({...p,subPos:e.target.value})}><option value="">—</option>{POS_LIST.map(x=><option key={x} value={x}>{x}</option>)}</select></Field>
+          </div>
+          <Field label="가능 포지션 (복수 선택)"><div className="flex flex-wrap gap-1.5">
+            {['P','C','1B','2B','3B','SS','LF','CF','RF','DH','OF','IF','ALL'].map(x=>(<button key={x} onClick={()=>togglePos(x)} className={"chip "+(p.allPos.includes(x)?'':'opacity-40')} style={{background:(POS_COLOR[x]||'#64748b')+'22',color:POS_COLOR[x]||'#94a3b8',border:'1px solid '+(POS_COLOR[x]||'#64748b')+'55',padding:'3px 8px'}}>{x}</button>))}
+          </div></Field>
+        </div>
+        <div className="flex gap-2 mt-5"><button onClick={del} className="text-[12px] text-red-400/80 hover:text-red-400 px-3 py-2">제거</button><div className="flex-1"/><button onClick={onClose} className="text-[13px] text-slate-400 px-4 py-2">취소</button><button onClick={save} className="text-[13px] bg-blue-600 hover:bg-blue-500 rounded-lg px-5 py-2 font-semibold">저장</button></div>
+      </div>
+    </div>
+  );
+}
+function Field({label,children}){return <label className="block"><div className="text-[11px] text-slate-400 mb-1">{label}</div>{children}</label>;}
+
+// ---------- SCHEDULE ----------
+function ScheduleView({state,update}){
+  const teamNames=state.teams.map(t=>t.name);
+  const add=()=>update(s=>{s.schedule.push({id:'g'+Date.now(),date:'',home:s.teams[0]?.name||'',away:s.teams[1]?.name||'',hs:'',as:'',note:''});});
+  const sorted=[...state.schedule].sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+  return (<div className="glass rounded-xl border border-slate-800 p-4">
+    <div className="flex items-center justify-between mb-3"><div className="font-bold text-[15px]">경기 일정</div><button onClick={add} className="text-[13px] bg-blue-600 hover:bg-blue-500 rounded-lg px-3 py-1.5 font-semibold">+ 경기 추가</button></div>
+    {sorted.length===0 && <div className="text-slate-500 text-[13px] py-8 text-center">아직 등록된 경기가 없습니다. 경기를 추가하세요.</div>}
+    <div className="space-y-1.5">{sorted.map(g=>(<div key={g.id} className="bg-slate-800/40 rounded-lg p-2.5 flex flex-wrap items-center gap-2">
+      <input type="date" className="input text-[12px]" value={g.date} onChange={e=>update(s=>{s.schedule.find(x=>x.id===g.id).date=e.target.value;})}/>
+      <select className="input text-[12px] flex-1 min-w-[110px]" value={g.home} onChange={e=>update(s=>{s.schedule.find(x=>x.id===g.id).home=e.target.value;})}>{teamNames.map(n=><option key={n}>{n}</option>)}</select>
+      <input className="input w-12 text-center" value={g.hs} placeholder="-" onChange={e=>update(s=>{s.schedule.find(x=>x.id===g.id).hs=e.target.value;})}/>
+      <span className="text-slate-500 text-[12px]">vs</span>
+      <input className="input w-12 text-center" value={g.as} placeholder="-" onChange={e=>update(s=>{s.schedule.find(x=>x.id===g.id).as=e.target.value;})}/>
+      <select className="input text-[12px] flex-1 min-w-[110px]" value={g.away} onChange={e=>update(s=>{s.schedule.find(x=>x.id===g.id).away=e.target.value;})}>{teamNames.map(n=><option key={n}>{n}</option>)}</select>
+      <input className="input text-[12px] flex-1 min-w-[80px]" placeholder="메모" value={g.note} onChange={e=>update(s=>{s.schedule.find(x=>x.id===g.id).note=e.target.value;})}/>
+      <button onClick={()=>update(s=>{s.schedule=s.schedule.filter(x=>x.id!==g.id);})} className="text-slate-500 hover:text-red-400 text-[12px] px-1">✕</button>
+    </div>))}</div>
+  </div>);
+}
+
+// ---------- SCOUT ----------
+function ScoutView({state}){
+  const [tid,setTid]=useState(state.myTeam||state.teams[0]?.id||null);
+  const team=state.teams.find(t=>t.id===tid);
+  const coverage={}; POS_LIST.forEach(p=>coverage[p]=[]);
+  team?.players.forEach(p=>{ expandPos(p.allPos.length?p.allPos:[p.mainPos]).forEach(pos=>{ if(coverage[pos])coverage[pos].push(p.name); }); });
+  return (<div><TeamPicker state={state} tid={tid} setTid={setTid}/>
+    {team && (<div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-4">
+      <div className="glass rounded-xl border border-slate-800 p-4">
+        <div className="font-bold text-[15px] mb-3 flex items-center gap-2">{team.name}{state.myTeam===team.id&&<span className="chip bg-amber-500/20 text-amber-300 border border-amber-500/40">⭐ 내 팀</span>}<span className="text-slate-500 text-[12px] font-normal">로스터 {team.players.length}명</span></div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">{team.players.map(p=>(<div key={p.id} className={"flex items-center gap-2.5 rounded-lg p-2 "+(p.isManager?'bg-indigo-500/10':'bg-slate-800/40')}>
+          <PlayerPhoto index={p.index} name={p.name} size={38}/>
+          <div className="min-w-0"><div className="text-[13px] font-semibold truncate flex items-center gap-1">{p.isManager&&<span className="chip bg-indigo-500/30 text-indigo-200">감독</span>}{p.name}</div>
+            <div className="flex gap-1 flex-wrap mt-0.5">{p.mainPos&&<PosChip p={p.mainPos}/>}{expandPos(p.allPos).filter(x=>x!==p.mainPos).slice(0,4).map(x=><span key={x} className="chip bg-slate-700/40 text-slate-400">{x}</span>)}</div>
+          </div></div>))}</div>
+      </div>
+      <div className="glass rounded-xl border border-slate-800 p-4 h-fit">
+        <div className="font-bold text-[14px] mb-2">포지션 뎁스</div><div className="text-[11px] text-slate-500 mb-3">상대가 각 포지션에 세울 수 있는 자원</div>
+        <div className="space-y-1.5">{POS_LIST.map(pos=>(<div key={pos} className="flex items-start gap-2"><span className="w-9 shrink-0"><PosChip p={pos}/></span><span className="text-[12px] text-slate-300 leading-snug">{coverage[pos].length?coverage[pos].join(', '):<span className="text-slate-600">—</span>}</span></div>))}</div>
+      </div>
+    </div>)}
+  </div>);
+}
+
+// ---------- LINEUP & DEPTH (diamond + drag&drop) ----------
+const FIELD_POS = {
+  CF:{x:50,y:12}, LF:{x:16,y:25}, RF:{x:84,y:25},
+  SS:{x:34,y:41}, '2B':{x:66,y:41},
+  '3B':{x:15,y:59}, '1B':{x:85,y:59}, P:{x:50,y:58},
+  C:{x:50,y:84}, DH:{x:85,y:84}
+};
+const POS_KR = {P:'투수',C:'포수','1B':'1루','2B':'2루','3B':'3루',SS:'유격',LF:'좌익',CF:'중견',RF:'우익',DH:'지타'};
+
+// drag context (module-level, simple)
+let DRAG = null; // {name}
+
+function Diamond({children,height}){
+  return (
+    <div className="relative w-full" style={{minHeight:height}}>
+      <svg viewBox="0 0 1000 800" className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
+        <defs>
+          <radialGradient id="grass" cx="50%" cy="38%" r="75%">
+            <stop offset="0%" stopColor="#1f5132" stopOpacity="0.55"/>
+            <stop offset="100%" stopColor="#0d2818" stopOpacity="0.35"/>
+          </radialGradient>
+        </defs>
+        <path d="M 50,660 Q 50,180 500,108 Q 950,180 950,660 Z" fill="url(#grass)" stroke="#2f5f3f" strokeWidth="2.5"/>
+        <path d="M 500,648 L 285,452 L 500,262 L 715,452 Z" fill="#9c7a44" fillOpacity="0.20" stroke="#b58c52" strokeWidth="2.5"/>
+        <circle cx="500" cy="470" r="46" fill="#b58c52" fillOpacity="0.22" stroke="#b58c52" strokeWidth="1.5"/>
+        <polygon points="485,648 515,648 524,670 500,690 476,670" fill="#fff" fillOpacity="0.55"/>
+        <rect x="495" y="447" width="14" height="14" transform="rotate(45 502 454)" fill="#fff" fillOpacity="0.4"/>
+        <rect x="280" y="447" width="14" height="14" transform="rotate(45 287 454)" fill="#fff" fillOpacity="0.4"/>
+        <rect x="710" y="447" width="14" height="14" transform="rotate(45 717 454)" fill="#fff" fillOpacity="0.4"/>
+      </svg>
+      {children}
+    </div>
+  );
+}
+
+function LineupView({state,update}){
+  const [tid,setTid]=useState(state.myTeam||state.teams[0]?.id||null);
+  const [dragOver,setDragOver]=useState(null);
+  const team=state.teams.find(t=>t.id===tid);
+  const ensure=(l)=>{ if(!l.field)l.field={}; if(!l.order)l.order=Array(9).fill(''); if(!l.omap)l.omap=Array(9).fill(null); if(!l.bench)l.bench=[]; return l; };
+  const lu=ensure(JSON.parse(JSON.stringify(state.lineups[tid]||{})));
+  const opts=team?.players||[];
+  const findP=(nm)=>opts.find(x=>x.name===nm);
+  const setLu=(fn)=>update(s=>{ if(!s.lineups[tid])s.lineups[tid]={}; ensure(s.lineups[tid]); fn(s.lineups[tid]); });
+
+  // 필드에 직접 배치(드롭다운/단일). swap 아님.
+  const assignField=(pos,name)=>setLu(l=>{ placeField(l,pos,name); });
+  function placeField(l,pos,name){
+    l.field[pos]=name;
+    let slot=l.omap.indexOf(pos);
+    if(!name){ if(slot>=0){ l.order[slot]=''; l.omap[slot]=null; } return; }
+    if(slot>=0){ l.order[slot]=name; }
+    else {
+      if(pos==='DH' && !l.omap[0]){ slot=0; }
+      else { slot=l.omap.indexOf(null); if(slot<0) slot=l.order.indexOf(''); }
+      if(slot>=0){ l.order[slot]=name; l.omap[slot]=pos; }
+    }
+  }
+  const setOrder=(i,name)=>setLu(l=>{
+    l.order[i]=name;
+    const pos=l.omap[i];
+    if(pos){ if(name) l.field[pos]=name; else { l.field[pos]=''; l.omap[i]=null; } }
+  });
+
+  const startDrag=(e,name,origin)=>{ if(!name)return; DRAG={name,origin}; if(e.dataTransfer){e.dataTransfer.effectAllowed='move'; try{e.dataTransfer.setData('text/plain',name);}catch(_){}} };
+  const dropField=(e,pos)=>{ e.preventDefault(); const d=DRAG; DRAG=null; setDragOver(null); if(!d||!d.name)return;
+    setLu(l=>{
+      const o=d.origin;
+      if(o&&o.kind==='field'&&o.key!==pos){ // 필드↔필드 스왑
+        const a=l.field[pos]||''; placeField(l,pos,d.name); placeField(l,o.key,a);
+      } else { placeField(l,pos,d.name); }
+    });
+  };
+  const dropOrder=(e,i)=>{ e.preventDefault(); const d=DRAG; DRAG=null; setDragOver(null); if(!d||!d.name)return;
+    setLu(l=>{
+      const o=d.origin;
+      if(o&&o.kind==='order'&&o.key!==i){ // 타순↔타순 스왑
+        const a=l.order[i]||''; const pa=l.omap[i]; const pb=l.omap[o.key];
+        l.order[i]=d.name; l.omap[i]=pb;
+        l.order[o.key]=a; l.omap[o.key]=pa;
+      } else {
+        l.order[i]=d.name; const pos=l.omap[i]; if(pos){ l.field[pos]=d.name; }
+      }
+    });
+  };
+
+  return (<div><TeamPicker state={state} tid={tid} setTid={setTid}/>
+    {team && (
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4">
+      {/* 필드 */}
+      <div className="glass rounded-2xl border border-slate-800 p-3 shadow-xl shadow-black/30">
+        <div className="flex items-center gap-2 mb-2 px-1">
+          <span className="text-emerald-400">◆</span>
+          <div className="font-bold text-[15px]">{team.name}</div>
+          <span className="text-slate-500 text-[12px]">수비 배치</span>
+          {state.myTeam===tid && <span className="chip bg-amber-500/20 text-amber-300 border border-amber-500/40 ml-auto">⭐ 내 팀</span>}
+        </div>
+        <Diamond height="520px">
+          {Object.entries(FIELD_POS).map(([pos,xy])=>{
+            const nm=lu.field[pos]||''; const pl=findP(nm); const c=POS_COLOR[pos];
+            const hot=dragOver===('F'+pos);
+            return (<div key={pos} className="absolute -translate-x-1/2 -translate-y-1/2" style={{left:xy.x+'%',top:xy.y+'%',width:'132px'}}
+              onDragOver={e=>{e.preventDefault();if(e.dataTransfer)e.dataTransfer.dropEffect='move';setDragOver('F'+pos);}} onDragLeave={()=>setDragOver(null)} onDrop={e=>dropField(e,pos)}>
+              <div className={"rounded-xl border bg-slate-900/90 p-1.5 transition shadow-lg "+(hot?'ring-2 ring-emerald-400 scale-105':'')} style={{borderColor:c+'66'}}>
+                <div className="text-center text-[10px] font-bold tracking-widest mb-1" style={{color:c}}>{pos} · {POS_KR[pos]}</div>
+                <div className="flex items-center gap-1.5">
+                  <span draggable={!!nm} onDragStart={e=>startDrag(e,nm,{kind:'field',key:pos})} className={"shrink-0 select-none text-slate-500 "+(nm?'cursor-grab active:cursor-grabbing hover:text-slate-300':'opacity-30')} title="드래그">⠿</span>
+                  <PlayerPhoto index={pl?.index} name={nm} size={26}/>
+                  <select className="bg-transparent text-[11px] text-slate-100 outline-none flex-1 min-w-0 cursor-pointer" value={nm} onChange={e=>assignField(pos,e.target.value)}>
+                    <option value="" className="bg-slate-900">—</option>
+                    {opts.map(p=><option key={p.id} value={p.name} className="bg-slate-900">{p.name}</option>)}
+                  </select>
+                </div>
+              </div>
+            </div>);
+          })}
+        </Diamond>
+        <div className="text-[10px] text-slate-500 text-center mt-1">선수 카드를 끌어 위치·타순에 놓을 수 있어요. DH는 선발 타순에 자동 배치됩니다.</div>
+      </div>
+      {/* 타순 + 대기 */}
+      <div className="space-y-3">
+        <div className="glass rounded-2xl border border-slate-800 p-3 shadow-xl shadow-black/30">
+          <div className="text-center font-bold text-[13px] tracking-widest text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-lg py-1.5 mb-2">타순 LINEUP</div>
+          <div className="space-y-1.5">
+            {[0,1,2,3,4,5,6,7,8].map(i=>{ const nm=lu.order[i]||''; const pl=findP(nm); const hot=dragOver===('O'+i); return (
+              <div key={i}
+                onDragOver={e=>{e.preventDefault();if(e.dataTransfer)e.dataTransfer.dropEffect='move';setDragOver('O'+i);}} onDragLeave={()=>setDragOver(null)} onDrop={e=>dropOrder(e,i)}
+                className={"flex items-center gap-2 bg-slate-800/40 rounded-lg p-1.5 transition "+(hot?'ring-2 ring-emerald-400':'')}>
+                <span className="w-6 h-6 shrink-0 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-[12px] font-black text-white">{i+1}</span>
+                <span draggable={!!nm} onDragStart={e=>startDrag(e,nm,{kind:'order',key:i})} className={"shrink-0 select-none text-slate-500 "+(nm?'cursor-grab active:cursor-grabbing hover:text-slate-300':'opacity-30')} title="드래그">⠿</span>
+                <PlayerPhoto index={pl?.index} name={nm} size={28}/>
+                <select className="bg-transparent text-[12px] text-slate-100 outline-none flex-1 cursor-pointer" value={nm} onChange={e=>setOrder(i,e.target.value)}>
+                  <option value="" className="bg-slate-900">타자 이름</option>{opts.map(p=><option key={p.id} value={p.name} className="bg-slate-900">{p.name}</option>)}
+                </select>
+              </div>);})}
+          </div>
+        </div>
+        <div className="glass rounded-2xl border border-slate-800 p-3 shadow-xl shadow-black/30">
+          <div className="text-center font-bold text-[13px] tracking-widest text-slate-300 bg-slate-700/30 rounded-lg py-1.5 mb-2">대기 / 불펜</div>
+          <div className="space-y-1.5"
+            onDragOver={e=>{e.preventDefault();if(e.dataTransfer)e.dataTransfer.dropEffect='move';}} onDrop={e=>{e.preventDefault(); const d=DRAG; DRAG=null; setDragOver(null); if(d&&d.name){ setLu(l=>{ if(!l.bench.includes(d.name))l.bench.push(d.name); }); } }}>
+            {(lu.bench||[]).map((nm,idx)=>{ const pl=findP(nm); return (
+              <div key={idx} className="flex items-center gap-2 bg-slate-800/40 rounded-lg p-1.5">
+                <span draggable={!!nm} onDragStart={e=>startDrag(e,nm,{kind:'bench',key:idx})} className={"shrink-0 select-none text-slate-500 "+(nm?'cursor-grab active:cursor-grabbing hover:text-slate-300':'opacity-30')} title="드래그">⠿</span>
+                <PlayerPhoto index={pl?.index} name={nm} size={26}/>
+                <select className="bg-transparent text-[12px] text-slate-100 outline-none flex-1 cursor-pointer" value={nm} onChange={e=>setLu(l=>{l.bench[idx]=e.target.value;})}>
+                  <option value="" className="bg-slate-900">선수 이름</option>{opts.map(p=><option key={p.id} value={p.name} className="bg-slate-900">{p.name}</option>)}
+                </select>
+                <button onClick={()=>setLu(l=>{l.bench=l.bench.filter((_,i)=>i!==idx);})} className="text-slate-600 hover:text-red-400 text-[12px] px-1">✕</button>
+              </div>);})}
+            <button onClick={()=>setLu(l=>{l.bench.push('');})} className="w-full py-1.5 rounded-lg text-[12px] text-slate-400 border border-dashed border-slate-700 hover:border-slate-500">+ 추가</button>
+          </div>
+        </div>
+      </div>
+    </div>)}
+  </div>);
+}
+
+function DepthView({state,update}){
+  const [tid,setTid]=useState(state.myTeam||state.teams[0]?.id||null);
+  const [dragOver,setDragOver]=useState(null);
+  const team=state.teams.find(t=>t.id===tid);
+  const dc=state.depth[tid]||{};
+  const setDepth=(pos,arr)=>update(s=>{ if(!s.depth[tid])s.depth[tid]={}; s.depth[tid][pos]=arr.filter(Boolean); });
+  const opts=team?.players||[];
+  const findP=(nm)=>opts.find(x=>x.name===nm);
+  const mgr=opts.find(p=>p.isManager);
+  const suggest=(pos)=>(team?.players||[]).filter(p=>!p.isManager&&expandPos(p.allPos.length?p.allPos:[p.mainPos]).includes(pos)).map(p=>p.name);
+
+  const startDrag=(e,fromPos,fromIdx)=>{ DRAG={fromPos,fromIdx}; if(e.dataTransfer){e.dataTransfer.effectAllowed='move'; try{e.dataTransfer.setData('text/plain','x');}catch(_){}} };
+  // 행에 드롭: 같은/다른 포지션의 특정 인덱스와 위치 교환(스왑)
+  const dropRow=(e,toPos,toIdx)=>{ e.preventDefault(); e.stopPropagation(); const d=DRAG; DRAG=null; setDragOver(null); if(!d)return;
+    update(s=>{ const dep=s.depth[tid]||(s.depth[tid]={});
+      const from=(dep[d.fromPos]||[]).slice(); const to=(dep[toPos]||[]).slice();
+      if(d.fromPos===toPos){ if(d.fromIdx===toIdx)return; const a=from; const t=a[toIdx]; a[toIdx]=a[d.fromIdx]; a[d.fromIdx]=t; dep[toPos]=a.filter(Boolean); }
+      else { const mv=from[d.fromIdx]; const tgt=to[toIdx]||''; to[toIdx]=mv; if(tgt) from[d.fromIdx]=tgt; else from.splice(d.fromIdx,1); dep[toPos]=to.filter(Boolean); dep[d.fromPos]=from.filter(Boolean); }
+    });
+  };
+  // 카드 빈 영역에 드롭: 그 포지션 맨 끝에 추가(다른 포지션에서 온 경우 출발지에서 제거)
+  const dropCard=(e,toPos)=>{ e.preventDefault(); const d=DRAG; DRAG=null; setDragOver(null); if(!d)return;
+    update(s=>{ const dep=s.depth[tid]||(s.depth[tid]={});
+      const from=(dep[d.fromPos]||[]).slice(); const mv=from[d.fromIdx]; if(!mv)return;
+      if(d.fromPos===toPos)return;
+      const to=(dep[toPos]||[]).filter(n=>n&&n!==mv); to.push(mv); dep[toPos]=to;
+      from.splice(d.fromIdx,1); dep[d.fromPos]=from.filter(Boolean);
+    });
+  };
+
+  const SlotCard=({pos})=>{
+    const list=dc[pos]||[]; const c=POS_COLOR[pos];
+    const starter=list[0]||''; const backups=list.slice(1);
+    const hot=dragOver===pos;
+    return (
+      <div onDragOver={e=>{e.preventDefault();if(e.dataTransfer)e.dataTransfer.dropEffect='move';setDragOver(pos);}} onDragLeave={()=>setDragOver(null)} onDrop={e=>dropCard(e,pos)}
+        className={"rounded-2xl border bg-slate-900/90 p-2 shadow-lg transition "+(hot?'ring-2 ring-emerald-400':'')} style={{borderColor:c+'55',width:'186px'}}>
+        <div className="text-center text-[11px] font-bold tracking-widest mb-1.5" style={{color:c}}>{pos} · {POS_KR[pos]}</div>
+        {/* 주전 = idx 0 */}
+        <div onDragOver={e=>{e.preventDefault();}} onDrop={e=>dropRow(e,pos,0)}
+          className="rounded-xl border p-1.5 mb-1" style={{borderColor:c+'40',background:c+'12'}}>
+          <div className="flex items-center gap-1.5">
+            <span draggable={!!starter} onDragStart={e=>startDrag(e,pos,0)} className={"shrink-0 select-none text-slate-500 "+(starter?'cursor-grab active:cursor-grabbing hover:text-slate-300':'opacity-30')} title="드래그">⠿</span>
+            <PlayerPhoto index={findP(starter)?.index} name={starter} size={30}/>
+            <div className="flex-1 min-w-0">
+              <div className="text-[9px] font-bold" style={{color:c}}>주전 · STARTER</div>
+              <select className="bg-transparent text-[12px] font-semibold text-slate-100 outline-none w-full cursor-pointer" value={starter} onChange={e=>{const a=[...list]; if(a.length)a[0]=e.target.value; else a.push(e.target.value); setDepth(pos,a);}}>
+                <option value="" className="bg-slate-900">—</option>
+                {opts.map(p=><option key={p.id} value={p.name} className="bg-slate-900">{p.name}</option>)}
+              </select>
+            </div>
+            {starter && <button onClick={()=>setDepth(pos,list.slice(1))} className="text-slate-600 hover:text-red-400 text-[11px]">✕</button>}
+          </div>
+        </div>
+        {/* 백업 = idx bi+1 */}
+        {backups.map((nm,bi)=>(
+          <div key={bi} onDragOver={e=>{e.preventDefault();}} onDrop={e=>dropRow(e,pos,bi+1)}
+            className="flex items-center gap-1.5 rounded-lg border border-slate-700/50 p-1 mb-1">
+            <span draggable onDragStart={e=>startDrag(e,pos,bi+1)} className="shrink-0 select-none text-slate-500 cursor-grab active:cursor-grabbing hover:text-slate-300" title="드래그">⠿</span>
+            <span className="text-[9px] text-slate-500 w-4 text-center font-bold">B{bi+1}</span>
+            <PlayerPhoto index={findP(nm)?.index} name={nm} size={22}/>
+            <span className="text-[11px] text-slate-200 flex-1 truncate">{nm}</span>
+            {bi>0 && <button onClick={()=>{const a=[...list];const k=bi+1;[a[k-1],a[k]]=[a[k],a[k-1]];setDepth(pos,a);}} className="text-slate-600 hover:text-slate-300 text-[10px]">▲</button>}
+            <button onClick={()=>setDepth(pos,list.filter((_,i)=>i!==bi+1))} className="text-slate-600 hover:text-red-400 text-[10px]">✕</button>
+          </div>
+        ))}
+        <select className="input w-full text-[11px] py-1 mt-0.5 border-dashed" value="" onChange={e=>{if(e.target.value)setDepth(pos,[...list,e.target.value]);}}>
+          <option value="">+ 추가</option>
+          {opts.filter(p=>!list.includes(p.name)).map(p=><option key={p.id} value={p.name}>{p.name}</option>)}
+        </select>
+      </div>
+    );
+  };
+
+  return (<div><TeamPicker state={state} tid={tid} setTid={setTid}/>
+    {team && (
+    <div className="glass rounded-2xl border border-slate-800 p-3 shadow-xl shadow-black/30">
+      <div className="flex items-center justify-between mb-2 px-1 gap-2 flex-wrap">
+        <div className="flex items-center gap-2"><span className="text-emerald-400">◆</span><div className="font-bold text-[15px]">{team.name} 뎁스차트</div>{state.myTeam===tid && <span className="chip bg-amber-500/20 text-amber-300 border border-amber-500/40">⭐ 내 팀</span>}</div>
+        <button onClick={()=>{if(confirm('가능 포지션 기준으로 자동 채울까요? 기존 뎁스차트를 덮어씁니다.')){update(s=>{s.depth[tid]={};POS_LIST.forEach(pos=>{s.depth[tid][pos]=suggest(pos);});});}}} className="text-[12px] bg-emerald-600/80 hover:bg-emerald-500 rounded-lg px-3 py-1.5 font-semibold">🪄 자동 채우기</button>
+      </div>
+      <Diamond height="840px">
+        {Object.keys(FIELD_POS).map(pos=>{ const xy=FIELD_POS[pos]; return (<div key={pos} className="absolute -translate-x-1/2 -translate-y-1/2" style={{left:xy.x+'%',top:xy.y+'%'}}><SlotCard pos={pos}/></div>); })}
+      </Diamond>
+      {mgr && (
+        <div className="mt-2 flex items-center gap-3 bg-indigo-500/10 border border-indigo-500/30 rounded-2xl p-3 max-w-sm mx-auto">
+          <PlayerPhoto index={mgr.index} name={mgr.name} size={48}/>
+          <div><div className="chip bg-indigo-500/30 text-indigo-200">👑 감독</div><div className="font-bold text-[15px] mt-0.5">{mgr.name}</div></div>
+        </div>
+      )}
+      <div className="text-[10px] text-slate-500 text-center mt-2">선수 카드를 다른 포지션으로 끌어다 놓으면 백업으로 추가됩니다.</div>
+    </div>)}
+  </div>);
+}
+
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
